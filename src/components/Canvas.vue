@@ -1,47 +1,74 @@
 <template>
   <div
-    :class="['canvas', {
-      'canvas--expanded': isExpanded,
-    }]"
-    :style="{ backgroundImage: `url(${picUrl})` }"
+    :class="[
+      'canvas',
+      {
+        'canvas--expanded': isExpanded,
+      },
+    ]"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
   >
+    <slot name="media"></slot>
     <div class="canvas__text">
       <span class="canvas__copyright">&copy; {{ copyright }}</span>
       <h1
         :class="[
           'canvas__title',
-          { 'canvas__title--show': isHovered }
+          { 'canvas__title--show': isHovered && isExpanded },
         ]"
-      >{{ picTitle }}</h1>
+      >
+        {{ title }}
+      </h1>
     </div>
     <transition name="fade">
-      <div class="canvas__nav canvas__nav--left" v-show="isHovered">
+      <div
+        class="canvas__nav canvas__nav--left"
+        v-show="isHovered"
+        @click="goPrev"
+      >
         <font-awesome-icon :icon="['fas', 'chevron-left']" />
       </div>
     </transition>
     <transition name="fade">
-      <div class="canvas__nav canvas__nav--right" v-show="isHovered && !isToday">
+      <div
+        class="canvas__nav canvas__nav--right"
+        v-show="isHovered && !isToday"
+        @click="goNext"
+      >
         <font-awesome-icon :icon="['fas', 'chevron-right']" />
       </div>
     </transition>
-    <div class="canvas__toggle" @click="() => { toggleCanvas(!isExpanded)} ">
+    <div
+      class="canvas__toggle"
+      @click="
+        () => {
+          toggleCanvas(!isExpanded);
+        }
+      "
+    >
       <font-awesome-icon
-      :icon="['fas', 'long-arrow-alt-right']"
-      :class="['canvas__toggle-arrow', { 'canvas__toggle-arrow--rotated': isExpanded }]" />
+        :icon="['fas', 'long-arrow-alt-right']"
+        :class="[
+          'canvas__toggle-arrow',
+          { 'canvas__toggle-arrow--rotated': isExpanded },
+        ]"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import navigationMixin from '@/mixins/navigation';
+import { formatDate } from '@/utils/dateUtils';
 
 export default {
+  mixins: [navigationMixin],
   data() {
     return {
       isHovered: false,
-      today: new Date().toISOString().substring(0, 10),
+      today: formatDate(),
     };
   },
   props: {
@@ -49,12 +76,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    picTitle: {
+    title: {
       type: String,
       default: 'Astronomy Picture of the Day',
-    },
-    picUrl: {
-      type: String,
     },
     copyright: {
       type: String,
@@ -63,8 +87,6 @@ export default {
   },
   computed: {
     isToday() {
-      console.log(this.$route.params.date);
-      console.log(this.today);
       return this.$route.params.date === this.today;
     },
   },
@@ -82,6 +104,14 @@ export default {
   flex-grow: 1;
   height: 100%;
   position: relative;
+
+  &__media-wrapper {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 
   &__text {
     display: flex;
@@ -115,10 +145,10 @@ export default {
     justify-content: center;
     font-size: 54px;
     font-weight: 900;
-    height: 100%;
+    height: auto;
     opacity: 0.5;
     position: absolute;
-    top: 0;
+    top: 50%;
     transition: opacity 0.5s ease-out;
     width: 100px;
 
@@ -142,7 +172,7 @@ export default {
     position: absolute;
     right: 10px;
     top: 10px;
-    transition: opacity 0.5s ease-out;
+    transition: opacity $layout-transition-time ease-out;
 
     &:hover {
       animation: shake 1.2s infinite both;
@@ -153,7 +183,7 @@ export default {
   }
 
   &__toggle-arrow {
-    transition: transform 0.5s ease-out;
+    transition: transform $layout-transition-time ease-out;
 
     &--rotated {
       transform: rotate(180deg);

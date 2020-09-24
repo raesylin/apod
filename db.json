@@ -1,12 +1,29 @@
 {
-    "data": {
-        "copyright": "Vincent Bouchama",
-        "date": "2017-03-02",
-        "explanation": "From northern Patagonia, morning skies were clear and blue on Sunday, February 26. This sweeping composite scene, overlooking Hermoso Valle, Facundo, Chubut, Argentina, follows the Sun after sunrise, capturing an annular solar eclipse. Created from a series of exposures at three minute intervals, it shows the year's first solar eclipse beginning well above the distant eastern horizon. An exposure close to mid-eclipse recorded the expected ring of fire, the silhouette of the New Moon only slightly too small to cover the bright Sun. At that location on planet Earth, the annular phase of the eclipse lasted a brief 45 seconds.",
-        "hdurl": "http://apod.nasa.gov/apod/image/1703/aseFeb2017_Bouchama.jpg",
+    "vimeo": {
+        "copyright": "Greg Priestley",
+        "date": "2020-09-12",
+        "explanation": "Over a thousand meteors flash through the night in this intriguing timelapse video. Starting in April 2019 the individual video frames were selected from 372 relatively clear nights of imaging from an automated wide-field observatory in rural New South Wales Australia. Arranged by local sidereal time, a timekeeping system that uses the positions of stars to measure Earth's rotation, the frames follow the full annual progression of constellations through the wide field of view seen from 33 degrees south latitude. They capture a diverse array of meteors including sporadic meteors, bright fireballs, and shower meteors (plus a lightning sprite), during the period. All frames were processed consistently and so show real variations in the local sky conditions.",
+        "media_type": "video",
+        "service_version": "v1",
+        "title": "A Thousand Meteors",
+        "url": "https://player.vimeo.com/video/438799770"
+    },
+    "youtube": {
+        "date": "2020-09-01",
+        "explanation": "Does Ceres have underground pockets of water? Ceres, the largest asteroid in the asteroid belt, was thought to be composed of rock and ice. At the same time, Ceres was known to have unusual bright spots on its surface. These bright spots were clearly imaged during Dawn's exciting approach in 2015. Analyses of Dawn images and spectra indicated that the bright spots arise from the residue of highly-reflective salt water that used to exist on Ceres' surface but evaporated. Recent analysis indicates that some of this water may have originated from deep inside the dwarf planet, indicating Ceres to be a kindred spirit with several  Solar System moons, also thought to harbor deep water pockets.  The featured video shows in false-color pink the bright evaporated brine named Cerealia Facula in Occator Crater.  In 2018, the mission-successful but fuel-depleted Dawn  spacecraft was placed in a distant parking orbit, keeping it away from the Ceres' surface for at least 20 years to avoid interfering with any life that might there exist.   Experts Debate: How will humanity first discover extraterrestrial life?",
+        "media_type": "video",
+        "service_version": "v1",
+        "title": "Salt Water Remnants on Ceres",
+        "url": "https://www.youtube.com/embed/ALaOGmu1S0I?rel=0"
+    },
+    "image": {
+        "copyright": "Jingyi Zhang",
+        "date": "2020-08-17",
+        "explanation": "Why would meteor trails appear curved? The arcing effect arises only because the image artificially compresses (nearly) the whole sky into a rectangle. The meteors are from the Perseid Meteor Shower that peaked last week. The featured multi-frame image combines not only different directions from the 360 projection, but different times when bright Perseid meteors momentarily streaked across the sky. All Perseid meteors can be traced back to the constellation Perseus toward the lower left, even the seemingly curved (but really straight) meteor trails.  Although Perseids always point back to their Perseus radiant, they can appear almost anywhere on the sky. The image was taken from Inner Mongolia, China, where grasslands meet sand dunes. Many treasures also visible in the busy night sky including the central arch of our Milky Way Galaxy, the planets Saturn and Jupiter toward the right, colorful airglow on the central left, and some relatively nearby Earthly clouds.  The Perseid Meteor Shower peaks every August.    Perseid Meteor Shower: Notable images submitted to APOD",
+        "hdurl": "https://apod.nasa.gov/apod/image/2008/PerseidBridge_Zhang_4032.jpg",
         "media_type": "image",
         "service_version": "v1",
-        "title": "Annular Eclipse After Sunrise a very long title",
-        "url": "http://apod.nasa.gov/apod/image/1703/aseFeb2017_Bouchama1024.jpg"
+        "title": "Perseids Around the Milky Way",
+        "url": "https://apod.nasa.gov/apod/image/2008/PerseidBridge_Zhang_1080.jpg"
     }
 }

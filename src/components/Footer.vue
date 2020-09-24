@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import { loadingIdleTime } from '@/utils/constants';
+
 export default {
   data() {
     return {
@@ -27,11 +29,11 @@ export default {
     };
   },
   created() {
-    const dev = true;
+    const dev = false;
     if (!dev) {
       setTimeout(() => {
         this.isHidden = true;
-      }, 3000);
+      }, loadingIdleTime);
     }
   },
 };

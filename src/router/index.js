@@ -1,16 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home.vue';
+import { formatDate } from '@/utils/dateUtils';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    redirect: () => {
-      const today = new Date();
-      return `/date/${today.toISOString().substr(0, 10)}`;
-    },
+    redirect: () => `/date/${formatDate()}`,
   },
   {
     path: '/date/:date',

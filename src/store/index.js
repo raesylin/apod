@@ -23,7 +23,6 @@ export default new Vuex.Store({
     },
     async fetchPicMeta({ commit }, date) {
       const data = await DataService.getPicData(date);
-      console.log(data);
       commit('SET_PIC_METADATA', data);
     },
   },
