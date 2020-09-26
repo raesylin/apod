@@ -12,4 +12,6 @@ module.exports = {
       },
     },
   },
+
+  outputDir: 'docs',
 };
