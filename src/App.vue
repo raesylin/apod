@@ -20,11 +20,16 @@ export default {
       }
     });
 
-    setTimeout(() => {
+    const loadingTimeout = setTimeout(() => {
       this.toggleCanvas(true);
     }, loadingIdleTime);
+    console.log(loadingTimeout);
+    this.setLoadingTimeout(loadingTimeout);
   },
-  methods: mapActions(['toggleCanvas']),
+  methods: mapActions(['toggleCanvas', 'setLoadingTimeout', 'clearLoadingTimeout']),
+  destroyed() {
+    this.clearLoadingTimeout();
+  },
 };
 </script>
 

@@ -1,28 +1,39 @@
 <template>
-  <div
-    :class="['footer', { 'footer--hidden': isHidden }]"
-    @mouseenter="isHidden = false"
-    @mouseleave="isHidden = true"
-  >
-    <div class="footer__toggle">{{ isHidden ? `&DoubleUpArrow;` : `&DoubleDownArrow;` }}</div>
+  <div :class="['footer', { 'footer--hidden': isHidden }]">
+    <div class="footer__toggle" @click="toggleFooter">
+      {{ isHidden ? `&DoubleUpArrow;` : `&DoubleDownArrow;` }}
+    </div>
     <div class="footer__content">
       <h1 class="footer__title">Astronomy Picture of the Day</h1>
       <span class="footer__sub">
         Source:
-        <a href="https://api.nasa.gov/" class="footer__link" target="_blank">NASA</a>
+        <a href="https://api.nasa.gov/" class="footer__link" target="_blank"
+          >NASA</a
+        >
       </span>
       <span class="footer__sub">
         Redesign and development:
-        <a href="https://raesylin.github.io" class="footer__link" target="_blank">Rachel Lin</a>
+        <a
+          href="https://raesylin.github.io"
+          class="footer__link"
+          target="_blank"
+          >Rachel Lin</a
+        >
       </span>
+      <Calendar class="footer__calendar" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import { loadingIdleTime } from '@/utils/constants';
+import Calendar from '@/components/Calendar.vue';
 
 export default {
+  components: {
+    Calendar,
+  },
   data() {
     return {
       isHidden: false,
@@ -35,6 +46,12 @@ export default {
         this.isHidden = true;
       }, loadingIdleTime);
     }
+  },
+  methods: {
+    toggleFooter() {
+      this.isHidden = !this.isHidden;
+    },
+    ...mapActions(['clearLoadingTimout']),
   },
 };
 </script>
@@ -58,6 +75,7 @@ export default {
   &__toggle {
     align-items: center;
     color: white;
+    cursor: pointer;
     display: flex;
     font-size: 14px;
     justify-content: center;
@@ -92,6 +110,10 @@ export default {
     &:hover {
       color: hotpink;
     }
+  }
+
+  &__calendar {
+    flex-grow: 1;
   }
 }
 </style>

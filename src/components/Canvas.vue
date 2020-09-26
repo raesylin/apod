@@ -11,7 +11,7 @@
   >
     <slot name="media"></slot>
     <div class="canvas__text">
-      <span class="canvas__copyright">&copy; {{ copyright }}</span>
+      <span class="canvas__copyright" v-if="copyright">&copy; {{ copyright }}</span>
       <h1
         :class="[
           'canvas__title',

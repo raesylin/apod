@@ -46,13 +46,15 @@ export const formatDate = (date = new Date(), format = 'iso') => {
       return `${dateString} ${intlMonthString}, ${year}`;
     }
 
-    const isoDateString = dateString.length === 1 ? dateString.padStart('0') : dateString;
+    const isoDateString = dateString.length === 1 ? dateString.padStart(2, '0') : dateString;
+
+    console.log(isoDateString);
     return `${year}-${month}-${isoDateString}`;
   }
   return date.toString();
 };
 
-export const createDate = (isoDateString) => {
+export const createDateFromISO = (isoDateString) => {
   const isIsoFormat = isoDateString.match(isoDateFormat);
   if (isIsoFormat) {
     const [year, month, date] = isoDateString.split('-');
