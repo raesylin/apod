@@ -4,14 +4,24 @@
       <span class="meta__sub">{{ intlDate }}</span>
       <h3 class="meta__title">{{ meta.title }}</h3>
       <p class="meta__explanation">{{ meta.explanation }}</p>
+      <div class="meta__interaction">
+        <Interaction
+          :url="meta.hdurl || meta.url"
+          :title="meta.title"
+         />
+      </div>
     </div>
   </transition>
 </template>
 
 <script>
 import { formatDateString } from '@/utils/dateUtils';
+import Interaction from '@/components/Interaction.vue';
 
 export default {
+  components: {
+    Interaction,
+  },
   props: {
     meta: {
       type: Object,
@@ -66,6 +76,13 @@ export default {
     height: 60vh;
     line-height: 1.7;
     overflow: auto;
+  }
+
+  &__interaction {
+    align-items: flex-end;
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
   }
 }
 </style>

@@ -7,7 +7,7 @@
 <script>
 import { mapActions } from 'vuex';
 import navigationMixin from '@/mixins/navigation';
-import { loadingIdleTime } from '@/utils/constants';
+// import { loadingIdleTime } from '@/utils/constants';
 
 export default {
   mixins: [navigationMixin],
@@ -20,11 +20,11 @@ export default {
       }
     });
 
-    const loadingTimeout = setTimeout(() => {
-      this.toggleCanvas(true);
-    }, loadingIdleTime);
-    console.log(loadingTimeout);
-    this.setLoadingTimeout(loadingTimeout);
+    // const loadingTimeout = setTimeout(() => {
+    //   this.toggleCanvas(true);
+    // }, loadingIdleTime);
+    // console.log(loadingTimeout);
+    // this.setLoadingTimeout(loadingTimeout);
   },
   methods: mapActions(['toggleCanvas', 'setLoadingTimeout', 'clearLoadingTimeout']),
   destroyed() {

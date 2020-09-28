@@ -7,8 +7,10 @@ import {
   faLongArrowAltLeft,
   faAngleDoubleUp,
   faAngleDoubleDown,
+  faDownload,
 } from '@fortawesome/free-solid-svg-icons';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
 import router from './router';
@@ -22,6 +24,9 @@ library.add(
   faCalendar,
   faAngleDoubleUp,
   faAngleDoubleDown,
+  faDownload,
+  faTwitter,
+  faFacebook,
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
