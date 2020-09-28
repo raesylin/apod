@@ -1,10 +1,13 @@
 <template>
   <div :class="['footer', { 'footer--hidden': isHidden }]">
     <div class="footer__toggle" @click="toggleFooter">
-      {{ isHidden ? `&DoubleUpArrow;` : `&DoubleDownArrow;` }}
+      <font-awesome-icon :icon="['fas', 'angle-double-up']" v-if="isHidden" />
+      <font-awesome-icon :icon="['fas', 'angle-double-down']" v-else />
     </div>
     <div class="footer__content">
-      <h1 class="footer__title">Astronomy Picture of the Day</h1>
+      <h1 class="footer__title">
+        <router-link to="/">Astronomy Picture of the Day</router-link>
+      </h1>
       <span class="footer__sub">
         Source:
         <a href="https://api.nasa.gov/" class="footer__link" target="_blank"

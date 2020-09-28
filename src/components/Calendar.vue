@@ -1,6 +1,11 @@
 <template>
   <div class="calendar">
-    <label for="calendar-input" class="calendar__label">
+    <label
+      for="calendar-input"
+      class="calendar__label"
+      title="Today"
+      @click="goToToday"
+    >
       <font-awesome-icon :icon="['far', 'calendar']" />
     </label>
     <DatePicker
@@ -43,6 +48,9 @@ export default {
         params: { date: formatDate(selectedDate) },
       });
       this.toggleCanvas(false);
+    },
+    goToToday() {
+      this.$router.push({ path: '/' });
     },
     ...mapActions(['toggleCanvas']),
   },
