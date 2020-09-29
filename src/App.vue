@@ -9,6 +9,29 @@ import { mapActions } from 'vuex';
 import navigationMixin from '@/mixins/navigation';
 
 export default {
+  name: 'APOD',
+  metaInfo: {
+    title: 'Raesylin - Astronomy Picture of the Day',
+    titleTemplate: '%s - APOD',
+    meta: [
+      {
+        name: 'description',
+        content: 'Redesigned by Raesylin for NASA\'s Astronomy Picture of the Day website',
+      },
+      {
+        property: 'og:title',
+        content: 'Raesylin - Astronomy Picture of the Day',
+      },
+      {
+        property: 'og:site_name',
+        content: 'Raesylin - APOD',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+    ],
+  },
   mixins: [navigationMixin],
   created() {
     window.addEventListener('keyup', (ev) => {

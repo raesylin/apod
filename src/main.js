@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faChevronLeft,
@@ -30,6 +31,7 @@ library.add(
 );
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
+Vue.use(VueMeta);
 
 new Vue({
   router,

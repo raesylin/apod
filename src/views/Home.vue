@@ -51,6 +51,33 @@ export default {
   created() {
     store.dispatch('fetchPicMeta', this.date);
   },
+  metaInfo() {
+    return {
+      title: `${this.meta.title}`,
+      meta: [
+        {
+          name: 'description',
+          content: `Astronomy Picture for ${this.meta.date}`,
+        },
+        {
+          property: 'og:title',
+          content: `${this.meta.title}`,
+        },
+        {
+          property: 'og:description',
+          content: `${this.meta.explanation}`,
+        },
+        {
+          property: 'og:url',
+          content: window.location.href,
+        },
+        {
+          property: 'og:image',
+          content: `${this.meta.media_type === 'image' ? this.meta.url : undefined}`,
+        },
+      ],
+    };
+  },
 };
 </script>
 
