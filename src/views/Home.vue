@@ -69,11 +69,15 @@ export default {
         },
         {
           property: 'og:url',
-          content: window.location.href,
+          content: `https://raesylin.github.io/apod/#/date/${this.meta.date}`,
         },
         {
           property: 'og:image',
           content: `${this.meta.media_type === 'image' ? this.meta.url : undefined}`,
+        },
+        {
+          property: 'og:video',
+          content: `${this.meta.media_type === 'video' ? this.meta.url : undefined}`,
         },
       ],
     };
