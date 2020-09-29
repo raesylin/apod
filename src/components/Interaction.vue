@@ -88,6 +88,7 @@ export default {
         window.FB.ui(
           {
             method: 'share',
+            href: window.location.href,
           },
           (response) => {
             console.log('here', response);
